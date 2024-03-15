@@ -10,8 +10,9 @@ services:
 
   ollama:
     container_name: ollama
-    image: ollama/ollama
+    image: ollama/ollama:${OLLAMA_VERSION:-latest}
     volumes:
-        - ollama:/root/.ollama
+        - ./ollama:/root/.ollama
+        - ./Modelfile:/Modefile
     ports:
-        - 11434:11434
+        - ${OLLAMA_PORT:-11434}:11434
