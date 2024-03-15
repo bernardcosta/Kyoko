@@ -13,6 +13,6 @@ services:
     image: ollama/ollama:${OLLAMA_VERSION:-latest}
     volumes:
         - ./ollama:/root/.ollama
-        - ./Modelfile:/Modefile
+        - ./Modelfile:/Modelfile
     ports:
         - ${OLLAMA_PORT:-11434}:11434
