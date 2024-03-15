@@ -13,7 +13,10 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.message.from_user.id
     if int(chat_id) == int(os.environ["OWNER_ID"]):
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="I'm a bot, please talk to me!")
+        await context.bot.send_message(
+            chat_id=update.effective_chat.id,
+            text="Hi, I'm Kyoko your unfiltered GPT. I won't hold anything back from you :) How can I be of assistance?",
+        )
 
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -28,7 +31,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "stream": "false",
             }
             logging.info("Requesting Chat with Model...")
-            response = requests.post(url=url, data=data)
+            response = requests.post(url=url, data=data, timeout=3200)
             response.raise_for_status()
             output = response.json()["message"]["content"]
             await context.bot.send_message(chat_id=update.effective_chat.id, text=output)
