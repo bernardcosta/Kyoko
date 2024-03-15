@@ -1,7 +1,7 @@
 version: "3.5"
 
 services:
-   kyoko:
+  kyoko:
     container_name: python-kyoko
     build: .
     restart: always
