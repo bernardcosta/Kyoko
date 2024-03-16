@@ -9,10 +9,7 @@ Kyoko is your local AI telegram bot based on open source LLM models. It a fully 
     - Copy the bot token into the env var `TELEGRAM_TOKEN` in `.env` file
 3. Find your [telegram user id](https://cobrasystems.nl/en/telegram-user-id/) and copy it to `OWNER_ID` env var
     - If this is not set the LLM will not be triggered and the telegram bot will be unresponsive
-4. run docker services 
-    ```
-    docker-compose up
-    ```
+4. run docker services `docker-compose up`
 5. Download an LLM model with `docker-compose exec ollama ollama run <model-name>`
     - you can choose any model from the [ollama library](https://github.com/ollama/ollama?tab=readme-ov-file#model-library)
 6. Put the model name in the `.env` file for `OLLAMA_MODEL` env var.
