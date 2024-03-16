@@ -14,6 +14,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.message.from_user.id
     # Only chat with owner of bot
     if "OWNER_ID" in os.environ and int(chat_id) == int(os.environ["OWNER_ID"]):
+        logging.info(f'starting chat with {os.environ["OLLAMA_MODEL"]}')
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
             text="Hi, I'm Kyoko your unfiltered GPT. I won't hold anything back from you :) How can I be of assistance?",
