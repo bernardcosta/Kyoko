@@ -1,8 +1,8 @@
 version: "3.5"
 
 services:
-  kyoko:
-    container_name: python-kyoko
+  bot:
+    container_name: telegram-bot
     build: .
     restart: always
     volumes:

@@ -12,7 +12,8 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.message.from_user.id
-    if int(chat_id) == int(os.environ["OWNER_ID"]):
+    # Only chat with owner of bot
+    if "OWNER_ID" in os.environ and int(chat_id) == int(os.environ["OWNER_ID"]):
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
             text="Hi, I'm Kyoko your unfiltered GPT. I won't hold anything back from you :) How can I be of assistance?",
@@ -22,7 +23,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         chat_id = update.message.from_user.id
-        if int(chat_id) == int(os.environ["OWNER_ID"]):
+        # Only chat with owner of bot
+        if "OWNER_ID" in os.environ and int(chat_id) == int(os.environ["OWNER_ID"]):
             prompt = update.message.text
             logging.info("prompt: " + prompt)
             url = os.environ["OLLAMA_API_URL"] + "/chat"
