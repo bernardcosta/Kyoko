@@ -31,8 +31,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "messages": [{"role": "user", "content": str(prompt)}],
                 "stream": False,
                 "keep_alive": "10m"
-            }
-            print(data)
+            } 
             logging.info("Requesting Chat with Model...")
             response = requests.post(url=url, json=data, timeout=3200)
             response.raise_for_status()
