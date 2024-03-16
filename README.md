@@ -1,6 +1,6 @@
 # Kyoko
 
-Kyoko is an AI telegram bot based on open source LLM models.
+Kyoko is your local AI telegram bot based on open source LLM models. It a fully self-hosted model and bot.
 
 ## setup
 
@@ -17,5 +17,6 @@ Kyoko is an AI telegram bot based on open source LLM models.
     - you can choose any model from the [ollama library](https://github.com/ollama/ollama?tab=readme-ov-file#model-library)
 6. Put the model name in the `.env` file for `OLLAMA_MODEL` env var.
 
-For a custom model, you can create a `Modelfile` in the directory `/Modelfiles` and restart ollama container for the changes to take effect. Follow the [ollama modelfile examples](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#examples). **Note** whenever you want to run an `ollama` command always run them through the docker container with `docker compose exec ollamam <ollama-command>`
+For a custom model, you can create a `Modelfile` in the directory `/Modelfiles` and restart ollama container for the changes to take effect. Remember to change `OLLAMA_MODEL` env var to the model name you want to use. Follow the [ollama modelfile examples](https://github.com/ollama/ollama/blob/main/docs/modelfile.md#examples). **Note** whenever you want to run an `ollama` command always run them through the docker container with `docker compose exec ollamam <ollama-command>`
 
+7. You can now go to your telegram bot and start chatting!
